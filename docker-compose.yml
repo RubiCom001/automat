@@ -9,7 +9,7 @@ services:
       - '3000:443'
     labels:
       - traefik.enable=true
-      - "traefik.http.routers.automatrouter.rule=Host(`automat.mypurser.net`) && PathPrefix(`/`)"
+      - "traefik.http.routers.automatrouter.rule=Host(`automate.mypurser.net`) && PathPrefix(`/`)"
       - traefik.http.routers.automatrouter.entryPoints=http
     depends_on:
       postgres:
