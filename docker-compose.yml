@@ -6,11 +6,11 @@ services:
       dockerfile: Dockerfile.compose
     entrypoint: /compose-entrypoint.sh
     ports:
-      - '3000:443'
+      - '443:443'
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.automatisch.rule=Host(`automate.mypurser.net`) && PathPrefix(`/`)"
-      - "traefik.http.routers.automatisch.entrypoints=websecure"
+      - "traefik.http.routers.automatisch.entrypoints=https"
       - "traefik.http.routers.automatisch.tls.certresolver=letsencrypt"
     depends_on:
       postgres:
@@ -22,7 +22,7 @@ services:
       - WEB_APP_URL=https://automate.mypurser.net
       - WEBHOOK_URL=https://automate.mypurser.net
       - PROTOCOL=https
-      - PORT=3000
+      - PORT=443
       - APP_ENV=production
       - REDIS_HOST=redis
       - POSTGRES_HOST=postgres
