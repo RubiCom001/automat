@@ -7,6 +7,10 @@ services:
     entrypoint: /compose-entrypoint.sh
     ports:
       - '3000:443'
+    labels:
+      - traefik.enable=true
+      - "traefik.http.routers.automatrouter.rule=Host(`automat.mypurser.net`) && PathPrefix(`/`)"
+      - traefik.http.routers.automatrouter.entryPoints=http
     depends_on:
       postgres:
         condition: service_healthy
