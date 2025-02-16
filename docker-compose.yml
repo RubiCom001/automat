@@ -13,7 +13,7 @@ services:
       redis:
         condition: service_started
     environment:
-      - HOST=localhost
+      - HOST=automate.mypurser.net
       - WEB_APP_URL=https://automate.mypurser.net
       - WEBHOOK_URL=https://automate.mypurser.net
       - PROTOCOL=http
