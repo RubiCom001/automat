@@ -8,9 +8,10 @@ services:
     ports:
       - '3000:443'
     labels:
-      - traefik.enable=true
-      - "traefik.http.routers.automatrouter.rule=Host(`automate.mypurser.net`) && PathPrefix(`/`)"
-      - traefik.http.routers.automatrouter.entryPoints=http
+      - "traefik.enable=true"
+      - "traefik.http.routers.automatisch.rule=Host(`automate.mypurser.net`) && PathPrefix(`/`)"
+      - "traefik.http.routers.automatisch.entrypoints=websecure"
+      - "traefik.http.routers.automatisch.tls.certresolver=letsencrypt"
     depends_on:
       postgres:
         condition: service_healthy
