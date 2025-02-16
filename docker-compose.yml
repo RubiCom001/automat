@@ -7,22 +7,17 @@ services:
     entrypoint: /compose-entrypoint.sh
     ports:
       - '3000:3000'
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.automatisch.rule=Host(`automate.mypurser.net`) && PathPrefix(`/`)"
-      - "traefik.http.routers.automatisch.entrypoints=https"
-      - "traefik.http.routers.automatisch.tls.certresolver=letsencrypt"
     depends_on:
       postgres:
         condition: service_healthy
       redis:
         condition: service_started
     environment:
-      - HOST=automate.mypurser.net
+      - HOST=0.0.0.0
       - WEB_APP_URL=https://automate.mypurser.net
       - WEBHOOK_URL=https://automate.mypurser.net
       - PROTOCOL=https
-      - PORT=443
+      - PORT=3000
       - APP_ENV=production
       - REDIS_HOST=redis
       - POSTGRES_HOST=postgres
