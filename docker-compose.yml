@@ -16,7 +16,7 @@ services:
       - HOST=localhost
       - WEB_APP_URL=https://automate.mypurser.net
       - WEBHOOK_URL=https://automate.mypurser.net
-      - PROTOCOL=http
+      - PROTOCOL=https
       - PORT=443
       - APP_ENV=production
       - REDIS_HOST=redis
