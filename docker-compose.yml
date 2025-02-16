@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile.compose
     entrypoint: /compose-entrypoint.sh
     ports:
-      - '443:443'
+      - '3000:443'
     depends_on:
       postgres:
         condition: service_healthy
@@ -17,7 +17,7 @@ services:
       - WEB_APP_URL=https://automate.mypurser.net
       - WEBHOOK_URL=https://automate.mypurser.net
       - PROTOCOL=https
-      - PORT=443
+      - PORT=3000
       - APP_ENV=production
       - REDIS_HOST=redis
       - POSTGRES_HOST=postgres
